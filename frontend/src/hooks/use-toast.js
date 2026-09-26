@@ -143,7 +143,7 @@ function useToast() {
         listeners.splice(index, 1)
       }
     };
-  }, [state])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps — register listener once on mount; setState is stable
 
   return {
     ...state,

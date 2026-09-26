@@ -87,7 +87,7 @@ if (isDevServer && process.env.DISABLE_EMERGENT_OVERLAY !== "true") {
     }
   } catch (err) {
     emergentOverlay = undefined;
-    console.warn(
+    console.warn( // eslint-disable-line no-console -- dev-time diagnostic
       "[emergent-overlay] not loaded — overlay disabled:",
       err instanceof Error ? err.message : err,
     );
@@ -165,7 +165,7 @@ if (isDevServer) {
     webpackConfig = withVisualEdits(webpackConfig);
   } catch (err) {
     if (err.code === 'MODULE_NOT_FOUND' && err.message.includes('@emergentbase/visual-edits/craco')) {
-      console.warn(
+      console.warn( // eslint-disable-line no-console -- dev-time diagnostic
         "[visual-edits] @emergentbase/visual-edits not installed — visual editing disabled."
       );
     } else {
@@ -184,7 +184,7 @@ if (emergentOverlay) {
   let overlay = emergentOverlay;
   const overlayFailed = (site, err) => {
     overlay = undefined;
-    console.warn(
+    console.warn( // eslint-disable-line no-console -- dev-time diagnostic
       `[emergent-overlay] ${site} failed — overlay disabled:`,
       err instanceof Error ? err.message : err,
     );
